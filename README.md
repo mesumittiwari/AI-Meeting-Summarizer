@@ -201,3 +201,27 @@ No separate steps are needed for the frontend. Once the backend is running, you 
     *(Optional: Add screenshots or GIFs to illustrate the usage.)*
 
 ## Project Structure
+
+## 🎥 Live Demo
+
+[![Watch the demo](https://img.youtube.com/vi/ZccZPmXawIw/maxresdefault.jpg)](https://youtu.be/ZccZPmXawIw)
+
+# 🧠 AI Flow Explanation (Input → Transcription → LLM Summarization)
+
+The AI Meeting Summarizer processes user input in a clear, modular pipeline. Here's how it works:
+
+---
+
+### 🔊 1. **Audio Input Upload**
+- User uploads a `.mp3`, `.wav`, etc. audio file via the frontend.
+- The file is sent to the backend for processing.
+
+---
+
+### 🎙️ 2. **Transcription via Whisper.cpp**
+- Backend converts audio to `.wav` if needed using `ffmpeg`.
+- Whisper.cpp is triggered via CLI:
+
+## Live link
+https://ai-meeting-summarizer-1-sfrq.onrender.com
+
