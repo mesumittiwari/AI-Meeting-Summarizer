@@ -24,7 +24,7 @@ except Exception as e:
 HUGGING_FACE_API_KEY = os.getenv("HUGGING_FACE_API_KEY")
 WHISPER_API_URL = "https://api-inference.huggingface.co/models/openai/whisper-large-v3"
 
-origins = ["http://localhost:5173", "http://127.0.0.1:5173"]
+origins = ["http://localhost:5173", "http://127.0.0.1:5173", "https://ai-meeting-summarizer-1-sfrq.onrender.com"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -32,6 +32,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/health")
+async def health_check():
+    """Simple health check endpoint."""
+    return {"status": "ok", "message": "Backend is healthy!"}
+
+
 
 # --- Helper Function for Email Formatting ---
 def format_summary_as_html(data: dict) -> str:
