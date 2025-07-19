@@ -51,19 +51,17 @@ This project is built using a modern stack to ensure performance, scalability, a
 
 **Backend:**
 * **Python:** The core programming language.
-* **[FastAPI / Flask]:** (Choose one based on your actual implementation, e.g., FastAPI for high performance, Flask for simplicity) A robust web framework for building the API.
-* **[Speech Recognition Library]:** (e.g., `SpeechRecognition`, `AssemblyAI`, `Whisper` local or API) For converting audio to text.
-* **[Large Language Model (LLM) API]:** (e.g., `OpenAI` GPT-3.5/GPT-4, `Hugging Face` models, `Google Gemini` API) For text summarization.
+* **[FastAPI]:** FastAPI for high performance.
+* **[Speech Recognition Library]:** WHISPER For converting audio to text.
+* **[Large Language Model (LLM) API]:** Used 'gemini-1.5-flash-latest' for text summarization, Hugging Face API for fast trancription.
 * **`python-dotenv`:** For managing environment variables.
 
 **Frontend:**
-* **[HTML, CSS, JavaScript]:** Standard web technologies for the user interface.
-* **[React / Vue / plain JS framework]:** (Specify if you're using a specific frontend framework, otherwise just mention plain JS) For dynamic user experience.
+* **[React]:** React + Tailwind CSS for dynamic user experience.
 
 **Deployment & Hosting:**
-* **Git:** Version control.
 * **GitHub:** Code hosting.
-* **Render:** (If applicable) Cloud platform for deploying the web service.
+* **Render:** Cloud platform for deploying the web service.
 
 ## Getting Started
 
@@ -73,7 +71,7 @@ Follow these instructions to set up and run the AI Meeting Summarizer on your lo
 
 Before you begin, ensure you have the following installed:
 
-* **Python 3.9+** (or your specific Python version)
+* **Python 3.9+** 
 * **pip** (Python package installer)
 * **Git**
 
@@ -162,10 +160,6 @@ Once the dependencies are installed and environment variables are set, you can s
 
 ### Running the Frontend
 
-(Instructions will vary greatly depending on whether you have a separate frontend application, and what framework it uses. Provide specific instructions here.)
-
-If your frontend is a separate application (e.g., in a `frontend` folder):
-
 1.  **Navigate to the `frontend` directory:**
     ```bash
     cd ../frontend # From the backend directory, or cd frontend from project root
@@ -182,25 +176,19 @@ If your frontend is a separate application (e.g., in a `frontend` folder):
     ```
     The frontend application should then open in your browser, usually at `http://localhost:3000`.
 
-**If your frontend is integrated directly with the backend (e.g., Jinja2 templates in Flask):**
-No separate steps are needed for the frontend. Once the backend is running, you can access the application through the backend's URL.
-
 ---
 
 ## Usage
 
-(Provide clear instructions and examples of how to use the application.)
-
-1.  **Access the Application:** Open your web browser and navigate to the frontend URL (e.g., `http://localhost:3000` for a separate frontend, or `http://localhost:8000` if the backend serves the UI).
+1.  **Access the Application:** Open your web browser and navigate to the frontend URL (e.g., `http://localhost:3000`).
 2.  **Upload Audio:** Use the provided interface to upload your meeting audio file (e.g., MP3, WAV).
-3.  **Process:** Click the "Summarize Meeting" or similar button. The application will then:
-    * Transcribe the audio.
+3.  **Process:** It will automatically generate trancscription of uploaded auddio file. Click the "Copy to Analysis Input" button. The application will then:
+    * Take transcription as text input.
     * Process the transcript with the AI model.
     * Display the generated summary and extracted key points.
 4.  **View Summary:** Read the concise summary and review the extracted action items.
-    *(Optional: Add screenshots or GIFs to illustrate the usage.)*
-
-## Project Structure
+    * You can dowload the summarised text in CSV and JSON format.
+    * You can e-mail it to a predefined receiver email from your email (see envrironment variables for more clarity).
 
 ## 🎥 Live Demo
 
