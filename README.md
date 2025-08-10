@@ -20,7 +20,7 @@
     * [Running the Backend](#running-the-backend)
     * [Running the Frontend](#running-the-frontend)
 * [Usage](#usage)
-* [Project Structure](-project-structure)
+* [Project Structure](#-project-structure)
 * [Deployment](#-deployment)
 * [Contact](#-contact)
 * [Acknowledgments](#-acknowledgments)
