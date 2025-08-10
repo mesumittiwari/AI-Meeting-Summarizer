@@ -1,12 +1,14 @@
 # AI-Meeting-Summarizer
-# AI Meeting Summarizer
 
-![Project Banner](https://via.placeholder.com/1200x300/007bff/ffffff?text=AI+Meeting+Summarizer)
+![Project Banner](https://github.com/user-attachments/assets/e61ab72a-c820-4daa-b753-8be9d39ca3d2)
+
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
-[![Framework](https://img.shields.io/badge/Backend-FastAPI%20/%20Flask-green?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/) [![Language Model](https://img.shields.io/badge/LLM-OpenAI%20/%20HuggingFace-orange?logo=openai&logoColor=white)](https://openai.com/) [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Framework](https://img.shields.io/badge/Backend-FastAPI%20/%20Flask-green?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/) [![Language Model](https://img.shields.io/badge/LLM-Gemini%20/%20HuggingFace-orange?logo=google&logoColor=white)](https://deepmind.google/technologies/gemini/)  [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![GitHub last commit](https://img.shields.io/github/last-commit/mesumittiwari/AI-Meeting-Summarizer)](https://github.com/mesumittiwari/AI-Meeting-Summarizer/commits/main)
-[![Deployment](https://img.shields.io/badge/Deployed%20on-Render-46E0B4?logo=render&logoColor=white)](https://render.com/) ## Table of Contents
+[![Deployment](https://img.shields.io/badge/Deployed%20on-Render-46E0B4?logo=render&logoColor=white)](https://render.com/) 
+
+## Table of Contents
 
 * [Overview](#overview)
 * [Features](#features)
@@ -18,12 +20,10 @@
     * [Running the Backend](#running-the-backend)
     * [Running the Frontend](#running-the-frontend)
 * [Usage](#usage)
-* [Project Structure](#project-structure)
-* [Deployment](#deployment)
-* [Contributing](#contributing)
-* [License](#license)
-* [Contact](#contact)
-* [Acknowledgments](#acknowledgments)
+* [Project Structure](#-ai-flow-explanation-input--transcription--llm-summarization)
+* [Deployment](#-deployment)
+* [Contact](#-contact)
+* [Acknowledgments](#-acknowledgments)
 
 ---
 
@@ -35,6 +35,12 @@ This project aims to provide a robust solution for:
 * Converting raw meeting audio into accurate text transcripts.
 * Extracting the most important information, decisions, and action items.
 * Saving valuable time for individuals and teams.
+
+The output is categorized into:
+- 📌 **Pain Points**
+- 🛑 **Objections**
+- ✅ **Next Steps**
+- ⏳ **Timeline**
 
 ## Features
 
@@ -190,26 +196,89 @@ Once the dependencies are installed and environment variables are set, you can s
     * You can dowload the summarised text in CSV and JSON format.
     * You can e-mail it to a predefined receiver email from your email (see envrironment variables for more clarity).
 
+
+## 📂 Project Structure
+```plaintext
+AI-Meeting-Summarizer/
+│── backend/
+│   ├── main.py
+│   ├── requirements.txt
+│   └── ...
+│── frontend/
+│   ├── src/
+│   ├── package.json
+│   └── ...
+│── README.md
+```
+
 ## 🎥 Live Demo
 
 [![Watch the demo](https://img.youtube.com/vi/ZccZPmXawIw/maxresdefault.jpg)](https://youtu.be/ZccZPmXawIw)
 
-# 🧠 AI Flow Explanation (Input → Transcription → LLM Summarization)
+## 🧠 AI Flow Explanation (Input → Transcription → LLM Summarization)
 
-The AI Meeting Summarizer processes user input in a clear, modular pipeline. Here's how it works:
-
----
-
-### 🔊 1. **Audio Input Upload**
-- User uploads a `.mp3`, `.wav`, etc. audio file via the frontend.
+### 1. 🔊 Audio Input Upload
+- User uploads a `.mp3`, `.wav`, or similar audio file via the frontend.
 - The file is sent to the backend for processing.
 
+### 2. 🎙️ Transcription via Whisper (Hugging Face)
+- Backend converts audio to `.wav` if required using `ffmpeg`.
+- Whisper (Hugging Face) processes the audio and generates the transcript (text).
+
+### 3. 📝 Summarization via Gemini API
+- The transcript is sent to **Google Gemini** (`gemini-1.5-flash-latest`).
+- Gemini generates a structured summary categorized into:
+  - **Pain Points**
+  - **Objections**
+  - **Next Steps**
+  - **Timeline**
+
+### 4. 📤 Output Delivery
+- Results are displayed in the frontend UI.
+- Users can optionally:
+  - Download the output as **CSV** or **JSON**.
+  - Email the summary.
+
 ---
 
-### 🎙️ 2. **Transcription via Whisper.cpp**
-- Backend converts audio to `.wav` if needed using `ffmpeg`.
-- Whisper.cpp is triggered via CLI:
+## 🚀 Deployment
 
-## Live link
-https://ai-meeting-summarizer-1-sfrq.onrender.com
+The AI Meeting Summarizer is deployed on **Render** for backend hosting and can be accessed live via the following link:
 
+🔗 **Live App:** [AI Meeting Summarizer](https://ai-meeting-summarizer-1-sfrq.onrender.com/)
+
+**Deployment Steps (if self-hosting):**
+1. **Backend Deployment:**
+   - Push the backend code to your GitHub repository.
+   - Link your repository to a hosting platform such as **Render**, **Railway**, or **Heroku**.
+   - Configure environment variables (API keys, etc.) in the platform’s settings.
+   - Deploy and note the backend API URL.
+
+2. **Frontend Deployment:**
+   - Update API endpoints in the frontend code to point to the deployed backend.
+   - Deploy the frontend using **Vercel**, **Netlify**, or **Render**.
+   - Link your domain or use the default deployment URL provided by the hosting service.
+
+3. **Testing:**
+   - Test both frontend and backend integrations to ensure smooth performance.
+   - Verify file uploads, summarization accuracy, and API connections.
+
+---
+
+
+## 📧 Contact  
+**Sumit Tiwari**  
+📩 Email: [sumittiwari2414@gmail.com](mailto:sumittiwari2414@gmail.com)  
+🔗 GitHub: [mesumittiwari](https://github.com/mesumittiwari)
+
+
+## 🙌 Acknowledgments
+
+A huge thank you to all the amazing technologies, platforms, and people who made this project possible:
+
+- **[Google Gemini API](https://deepmind.google/technologies/gemini/)** – for providing powerful summarization capabilities.
+- **[Hugging Face](https://huggingface.co/)** – for robust transcription models like Whisper.
+- **[FastAPI](https://fastapi.tiangolo.com/)** – for creating a high-performance backend.
+- **[React](https://react.dev/)** and **[Tailwind CSS](https://tailwindcss.com/)** – for building a fast and responsive frontend.
+- **[Render](https://render.com/)** – for reliable cloud deployment.
+---
